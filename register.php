@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Contact</title>
     <meta charset="utf-8">
     <link href="css/stylesheet.css" rel="stylesheet">
 </head>
-
+<?php
+            // DEBUGGING ERRORS:
+            // Displays any errors that occur to the web page rather than
+            // placing them into a log file need to comment out before turning in.
+           ini_set('display_error', 1);
+           error_reporting(-1); 
+           require 'callQuery.php';  
+           require 'sanitize.php';
+           require 'dbConnect.php';
+?>
 <body>
 	<header>
 	    <img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
@@ -31,24 +40,24 @@
         <form action="">
   <!--  General -->
   <div class="form-group">
-    <h2 class="heading">Booking & contact</h2>
-    <div class="control">
-      <input type="text" id="firstName" class="floatLabel" name="name">
-      <label for="name">First Name</label>
-    </div>
-    <div class="control">
-      <input type="text" id="lastName" class="floatLabel" name="name">
-      <label for="name">Last Name</label>
-    </div>
-    <div class="control">
-      <input type="text" id="email" class="floatLabel" name="email">
-      <label for="email">Email</label>
-    </div>       
-    <div class="control">
-      <input type="tel" id="phone" class="floatLabel" name="phone">
-      <label for="phone">Phone</label>
-    </div>
-      
+        <h2 class="heading">Booking & contact</h2>
+        <div class="control">
+          <input type="text" id="firstName" class="floatLabel" name="firstName">
+          <label for="name">First Name</label>
+        </div>
+        <div class="control">
+          <input type="text" id="lastName" class="floatLabel" name="lastName">
+          <label for="name">Last Name</label>
+        </div>
+        <div class="control">
+          <input type="text" id="email" class="floatLabel" name="email">
+          <label for="email">Email</label>
+        </div>       
+        <div class="control">
+          <input type="tel" id="phone" class="floatLabel" name="phone">
+          <label for="phone">Phone</label>
+        </div>
+    </form>    
  
     
    
@@ -75,7 +84,7 @@
     <div class="col-1-3 col-1-3-sm">
       <div class="controls">
         <i class="fa fa-sort"></i>
-        <select class="floatLabel">
+        <select class="floatLabel" id="people" name="people">
           <option value="blank"></option>
           <option value="1">1</option>
           <option value="2" selected>2</option>
@@ -89,7 +98,7 @@
     <div class="col-1-6 col-1-6-sm">
     <div class="controls">
       <i class="fa fa-sort"></i>
-      <select class="floatLabel">
+      <select class="floatLabel" id="room" name="room">
         <option value="blank"></option>
         <option value="deluxe" selected>With Bathroom</option>
         <option value="Zuri-zimmer">Without Bathroom</option>
@@ -101,7 +110,7 @@
     <div class="col-1-5 col-1-5-sm">
     <div class="controls">
       <i class="fa fa-sort"></i>
-      <select class="floatLabel">
+      <select class="floatLabel" id="bedding" name="bedding">
         <option value="blank"></option>
         <option value="single-bed">Zweibett</option>
         <option value="double-bed" selected>Doppelbett</option>
@@ -113,12 +122,61 @@
     
     </div>
     
-            <button type="submit" value="Submit" class="col-1-6">Submit</button>
+            <button type="submit" name= "submit" value="submit" class="col-1-6">Submit</butoon>
       </div>  
     </form>
     
   </div><!-- /.form-group -->
+<?php
+    $newResSubmitted = sanitizeString(INPUT_GET, 'submit');
+    $firstName = sanitizeString(INPUT_GET, 'firstName');
+    $lastName = sanitizeString(INPUT_GET, 'lastName');
+    $email = sanitizeEmail(INPUT_GET, 'email');
+    $phoneNumber =  'phone';
+    $arriveDate = 'arrive';
+    $departDate = 'depart';
+    $numPeople = 'people' ;
+    $room = sanitizeString(INPUT_GET, 'room');
+    $bedding = sanitizeString(INPUT_GET, 'bedding');
+
+    if ($newResSubmitted=='submit'){
+        if (!empty(trim($firstName))) {
+            if (!empty(trim($lastName))) {
+                if (!empty(trim($email))) {
+                    if (!empty(trim($phoneNumber))) {
+                        Try{
+                            $pdo->beginTransaction();
+                            $sql = "INSERT INTO reservations (firstName, lastName, email, phone, room, bedding) VALUES ('$firstName', '$lastName', '$email', '$phoneNumber','$room', '$bedding')";
+                            $s =$pdo->prepare($sql);
+                            $s->execute();                            
+                            $pdo->commit();
+                        } catch (PDOException $ex) {
+                            $pdo->rollBack(); // Rollback to the commit
+                            
+                            $error = 'Error performing insert of informtion: ' . $ex->getMessage();
+                            include 'error.html.php';
+                            throw $ex;
+                        }
+                    } Else {
+                        echo"<h3> Please enter a Phone Number";
+                    }// End Check for PhoneNumber
+                } else {
+                    echo"<h3> Please enter a Email";
+                }// End Check for email
+            } else {
+                echo"<h3> Please enter a Last Name";
+            }// End Check for last name
+        } else {
+           echo"<h3> Please enter a First Name";
+        }//end chech for first Name
+        
+    } 
+// end if to see if form submitted
+
     
+?>
+
+
     
   <footer class="newfooter">
     <div id="footer-address">
@@ -153,8 +211,3 @@
 
   </body>
 </html>
-
-
-
-      
-       
