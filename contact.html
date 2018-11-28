@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact</title>
+    <meta charset="utf-8">
+    <link href="css/stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+	    <img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
+        <span id= "Title">Bed Breakfast</span> 
+	   
+        
+        <ul id="nav">
+          <div class="ul">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="room+rates.html">Rooms&Rates</a></li>
+            <li><a href="scheduleView.html">Schedule</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            </div>
+        </ul>
+        
+	  
+	  <!--<img src="images/ice_background2.jpg">-->
+	</header>
+    <div class="contact-container">
+      <div class="row">
+        <div class="contact-column">
+            <form action="mailto:contactPerson@eauclairefigureskatingclub.com" enctype="text/plain" method="post" id="contactForm">  
+              <ul class="contact-form">
+               	<h1>Contact Us</h1>
+                  <li>
+                      <label class="block">Full Name <span class="req">*</span></label>
+                      <input type="text" name="firstName" class="split-input" placeholder="First" />
+                      <input type="text" name="lastName" class="split-input" placeholder="Last" />
+                  </li>
+                  <li>
+                      <label>Email <span class="req">*</span></label>
+                      <input type="email" name="email" class="long-input" placeholder="someone@email.com"/>
+                  </li>
+                  <li>
+                      <label>Subject</label>
+                      <select name="subject" class="long-input">
+                          <option value="general">General Question</option>
+                          <option value="price">Price</option>
+                          <option value="schedule">Schedule</option>
+                          <option value="classes">Classes</option>
+                          <option value="testing">Testing</option>
+                          <option value="competition">Competition</option>
+                      </select>
+                  </li>
+                  <li>
+                      <label>Message <span class="req">*</span></label>
+                      <textarea name="message" id="message" class="long-input" placeholder="Hello, I have a question about..."></textarea>
+                  </li>
+                  <li>
+                      <input type="submit" value="Submit" />
+                  </li>
+              </ul>
+            </form>
+       </div>
+               <div class="contact-column" id="ContactInfo">
+               		<h1>Contact Information</h1>
+               		<p>Host: <a href="mailto:tkretschmer715@gmail.com">Jon Fehr</a></p>
+                    <p>Phone Number: 715-123-4567</p>
+		            
+               		<h3>Bed Breakfast @ <br>
+		            <a href="http://www.ci.eau-claire.wi.us/departments/recreation-services/recreation/hobbs-ice-center">Hobbs Municipal Ice Center</a></h3>
+		            <img src="https://pbs.twimg.com/profile_images/1799524350/hobbs.jpg" alt="Hobbs Ice Arena exterior"/>
+               </div>
+            </div>
+            <div class="row">
+            	<div id="map"></div>
+            </div>
+        </div>
+
+        <footer class="newfooter">
+          <div id="footer-address">
+            <p>
+              915 Menomonie St.
+              <br>
+              Eau Claire, WI 54703
+              <br>
+              715-874-4877
+              <br>
+            </p>
+
+          </div>
+          <div id="follow-us">
+            <h6> Follow Us </h6>
+            <div id="facebook2">
+              <a href= "https://www.facebook.com/eauclairefigureskate"  target="_blank"> <img src="images/facebook_icon.png"> </a>
+            </div>
+            <div id="instagram2">
+              <a href= "https://www.instagram.com/ec.figureskaters/" target="_blank"> <img  src="images/instagram_icon.png"> </a>
+            </div>
+          </div>
+          <div id="rights">
+              <p>
+                Eau Claire Figure Skating Club <br>
+                Copyright &copy; All Rights Reserved
+              </p>
+          </div>
+    </footer>
+    <script>
+        var pos, map, id;
+
+        function hobbsMap() {
+            pos = {
+                lat: 44.8004122,
+                lng: -91.520933
+            };
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: pos,
+                zoom: 14
+            });
+            id = 'ChIJNyejrYG9-IcRQy4UJguuK68';
+            var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            service.getDetails({
+                placeId: id
+            }, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                            place.formatted_address + '<br>' +
+                            '715-874-4877' + '</div>');
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, this);
+                    });
+                    infowindow.open(map, marker);
+                }
+            });
+        }
+    </script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=hobbsMap&libraries=places"></script>
+</body>
+
+</html>
