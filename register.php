@@ -85,7 +85,6 @@
       <div class="controls">
         <i class="fa fa-sort"></i>
         <select class="floatLabel" id="people" name="people">
-          <option value="blank"></option>
           <option value="1">1</option>
           <option value="2" selected>2</option>
           <option value="3">3</option>
@@ -129,34 +128,90 @@
   </div><!-- /.form-group -->
 <?php
     $newResSubmitted = sanitizeString(INPUT_GET, 'submit');
-    $firstName = sanitizeString(INPUT_GET, 'firstName');
-    $lastName = sanitizeString(INPUT_GET, 'lastName');
-    $email = sanitizeEmail(INPUT_GET, 'email');
-    $phoneNumber =  'phone';
-    $arriveDate = 'arrive';
-    $departDate = 'depart';
-    $numPeople = 'people' ;
-    $room = sanitizeString(INPUT_GET, 'room');
-    $bedding = sanitizeString(INPUT_GET, 'bedding');
 
+    
     if ($newResSubmitted=='submit'){
+        
+        $firstName = sanitizeString(INPUT_GET, 'firstName');
+        $lastName = sanitizeString(INPUT_GET, 'lastName');
+        $email = sanitizeEmail(INPUT_GET, 'email');
+        $phoneNumber =  sanitizeString(INPUT_GET, 'phone');
+        $arriveDate = date('Y-m-d', strtotime($_GET['arrive']));
+        $departDate = date('Y-m-d', strtotime($_GET['depart']));
+        $numPeople = sanitizeString(INPUT_GET, 'people');
+        $room = sanitizeString(INPUT_GET, 'room');
+        $bedding = sanitizeString(INPUT_GET, 'bedding');
+
+        $numPeople = (int)$numPeople;
+    
         if (!empty(trim($firstName))) {
             if (!empty(trim($lastName))) {
                 if (!empty(trim($email))) {
                     if (!empty(trim($phoneNumber))) {
                         Try{
-                            $pdo->beginTransaction();
-                            $sql = "INSERT INTO reservations (firstName, lastName, email, phone, room, bedding) VALUES ('$firstName', '$lastName', '$email', '$phoneNumber','$room', '$bedding')";
-                            $s =$pdo->prepare($sql);
-                            $s->execute();                            
-                            $pdo->commit();
+                            
+                            //Find out if room is already booked for date
+                            
+                            $checkDate = $arriveDate;
+                            $output = '';
+                            
+                            
+                            while ($checkDate <= $departDate){
+                               
+                                
+                               $query = "Select Count(reservationID)
+                                     From roombookings
+                                     WHERE room = '$room' and date = '$checkDate'";
+                               
+                               $errorMsg = "Error fetching dates";
+                
+                               $numDays = callQuery($pdo, $query, $errorMsg)->fetchColumn();
+                               If ($numDays > 0){
+                                   $outPut .= "<h1> Your date $checkDate and room selection has already been booked.</h1><br>";
+                                   
+                               } else   {
+                                            // Insert Room Reservation in to the reservations table
+                                     $pdo->beginTransaction();
+                                     $sql = "INSERT INTO reservations (firstName, lastName, email, phone, room, bedding, numPeople, startDate, endDate) VALUES ('$firstName', '$lastName', '$email', '$phoneNumber','$room', '$bedding', $numPeople, '$arriveDate','$departDate')";
+                                     $s =$pdo->prepare($sql);
+                                     $s->execute(); 
+
+                                     $reservationID =$pdo->lastInsertID();
+
+                                     $pdo->commit();
+
+                                     echo "<h1>Your Reservation Number is $reservationID </h1>";
+
+                                     $resDate = $arriveDate;
+
+
+                                     // enter in each day a room is booked into the room bookings table
+                                     while ($resDate <= $departDate){
+                                         $pdo->beginTransaction();
+                                     $sql = "INSERT INTO roombookings (reservationID, room, date) VALUES ($reservationID, '$room', '$resDate')";
+                                     $s =$pdo->prepare($sql);
+                                     $s->execute(); 
+
+                                     $pdo->commit();
+
+                                     $resDate = date('Y-m-d',strtotime($resDate.' +1 day'));
+                                     }
+                               }
+                            $checkDate = date('Y-m-d',strtotime($checkDate.' +1 day'));
+                            }
+                            
+                            echo $outPut;
+                                                
+                            
+                            
+                           
                         } catch (PDOException $ex) {
                             $pdo->rollBack(); // Rollback to the commit
                             
                             $error = 'Error performing insert of informtion: ' . $ex->getMessage();
                             include 'error.html.php';
                             throw $ex;
-                        }
+                        } // end entering reservation
                     } Else {
                         echo"<h3> Please enter a Phone Number";
                     }// End Check for PhoneNumber
