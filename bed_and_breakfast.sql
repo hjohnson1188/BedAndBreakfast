@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2018 at 11:33 PM
+-- Generation Time: Dec 02, 2018 at 09:23 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -47,9 +47,32 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`reservationNumber`, `firstName`, `lastName`, `room`, `startDate`, `endDate`, `specialRequests`, `email`, `numPeople`, `phone`, `bedding`) VALUES
-(1, 'eKrizan', '', 'A', '2018-11-17', '2018-11-19', 'Peanut Allergy', '', 0, '', ''),
-(2, 'hJohns', '', '', '2018-11-24', '2018-11-28', '', '', 0, '', ''),
-(3, 'Emily', 'Krizan', '', '0000-00-00', '0000-00-00', '', 'lkj', 0, 'phone', '');
+(60, 'TEST1', 'TEST1', 'deluxe', '2018-12-08', '2018-12-10', '', 'TEST1', 2, 'TEST1', 'double-bed'),
+(61, 'TEST3', 'TEST3', 'deluxe', '2018-12-15', '2018-12-15', '', 'TEST3', 2, 'TEST3', 'double-bed'),
+(62, 'TEST30', 'TEST30', 'Zuri-zimmer', '2018-12-15', '2018-12-15', '', 'TEST30', 2, 'TEST30', 'double-bed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roombookings`
+--
+
+CREATE TABLE `roombookings` (
+  `reservationID` int(11) NOT NULL,
+  `room` varchar(50) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roombookings`
+--
+
+INSERT INTO `roombookings` (`reservationID`, `room`, `date`) VALUES
+(60, 'deluxe', '2018-12-08'),
+(60, 'deluxe', '2018-12-09'),
+(60, 'deluxe', '2018-12-10'),
+(61, 'deluxe', '2018-12-15'),
+(62, 'Zuri-zimmer', '2018-12-15');
 
 --
 -- Indexes for dumped tables
@@ -69,7 +92,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservationNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `reservationNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
