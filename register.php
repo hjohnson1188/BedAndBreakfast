@@ -167,7 +167,7 @@
                 
                                $numDays = callQuery($pdo, $query, $errorMsg)->fetchColumn();
                                If ($numDays > 0){
-                                   $outPut .= "<h1> Your date $checkDate and room selection has already been booked.</h1><br>";
+                                   $outPut = $output."<h1> Your date $checkDate and room selection has already been booked.</h1><br>";
                                    
                                } else   {
                                             // Insert Room Reservation in to the reservations table
