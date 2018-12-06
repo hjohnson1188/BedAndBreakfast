@@ -5,7 +5,8 @@
     <title>Contact</title>
     <meta charset="utf-8">
     <link href="css/stylesheet.css" rel="stylesheet">
-</head>
+</head> 
+
 <?php
             // DEBUGGING ERRORS:
             // Displays any errors that occur to the web page rather than
@@ -26,10 +27,8 @@
           <div class="ul">
             <li><a href="index.html">Home</a></li>
             <li><a href="room+rates.html">Rooms&Rates</a></li>
-            <li><a href="scheduleView.html">Schedule</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="register.html">Register</a></li>
+            <li><a href="register.php">Book</a></li>
           </div>
         </ul>
       
