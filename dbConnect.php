@@ -13,7 +13,7 @@ $myPassword = trim(fgets($fp));
 try {
     
     // Create a new instance of a PDO object
-    $pdo = new PDO('mysql:host=localhost:3306;dbname=bed_and_breakfast','bedNbreakUser', $myPassword);
+    $pdo = new PDO('mysql:host=localhost:8888;dbname=bed_and_breakfast','bedNbreakUser', $myPassword);
     
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->exec('SET NAMES "utf8"');

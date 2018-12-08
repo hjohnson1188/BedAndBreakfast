@@ -232,14 +232,14 @@
 
 
     
-  <footer class="newfooter">
+    <footer class="newfooter">
     <div id="footer-address">
       <p>
-        915 Menomonie St.
+        1234 South Shore
         <br>
-        Eau Claire, WI 54703
+        Maldives
         <br>
-        715-874-4877
+        999-345-6789
         <br>
       </p>
 
@@ -247,10 +247,10 @@
      <div id="follow-us">
       <h6> Follow Us </h6>
      <div id="facebook2">
-        <a href= "https://www.facebook.com/eauclairefigureskate"  target="_blank"> <img src="images/facebook_icon.png"> </a>
+        <a> <img src="images/facebook_icon.png"> </a>
      </div>
      <div id="instagram2">
-        <a href= "https://www.instagram.com/ec.figureskaters/" target="_blank"> <img  src="images/instagram_icon.png"> </a>
+        <a> <img  src="images/instagram_icon.png"> </a>
      </div>
      </div>
      <div id="rights">
@@ -260,6 +260,7 @@
         </p>
      </div>
   </footer>
+
          
   
 
