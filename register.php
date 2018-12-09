@@ -19,9 +19,9 @@
 ?>
 <body>
 	<header>
-        <span id= "Title">Bed Breakfast</span> 
+         
 	   
-        
+        <h1 id= "Title">High View Bed and Breakfast</h1>
         <ul id="nav">
           <div class="ul">
             <li><a href="index.html">Home</a></li>
