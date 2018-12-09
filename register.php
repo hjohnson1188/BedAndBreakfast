@@ -25,7 +25,7 @@
         <ul id="nav">
           <div class="ul">
             <li><a href="index.html">Home</a></li>
-            <li><a href="room+rates.html">Rooms&Rates</a></li>
+            <li><a href="room+rates.html">Rooms & Rates</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="register.php">Book</a></li>
           </div>
