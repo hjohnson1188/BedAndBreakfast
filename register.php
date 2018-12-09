@@ -19,7 +19,6 @@
 ?>
 <body>
 	<header>
-	    <img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
         <span id= "Title">Bed Breakfast</span> 
 	   
         

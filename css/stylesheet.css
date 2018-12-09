@@ -12,15 +12,13 @@
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-html{
- 
-  background-image: url("ice_background2.jpg");  
+html{s 
   background: no-repeat;
   font-family: sans-serif
 }
 
 body {
-  background-color: white;
+  background-color: lightgray;
 }
 
 p{
@@ -48,7 +46,7 @@ header {
   background-image: url("../images/ice-background-1.jpg");
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-color: white;
+  background-color: lightgray;
   padding-bottom: 1em;  
   margin-bottom: 2em;
   text-align: center;
@@ -65,30 +63,6 @@ header {
 }
 
 /*NAV STUFF*/
-li a {
-    display: block;
-    color: #5F6A6A;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-} 
-.ul{
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  padding-left: 10%;
-  padding-right: 10%;
-  width: 100%;
-  background-color: white;
-  color: white;
-}
-#nav li{
-  display: inline-block;
-  font-size: 1.4em;
-  margin-top: 3px;
-  margin-bottom: 3px; 
-
-}
 #nav{
   background-color: #d5e8f8;
   width: 100%;
@@ -97,6 +71,34 @@ li a {
   top: 2em;
   box-shadow: 0 7px 10px #c0cdde;
 }
+#nav li{
+  display: inline-block;
+  font-size: 1.4em;
+  margin-top: 3px;
+  margin-bottom: 3px; 
+    width: 8em;
+
+}
+ul{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 100%;
+  background-color: darkgray;
+  color: blue;
+}
+li a {
+    display: block;
+    color: #5F6A6A;
+    text-align: center;
+   
+    text-decoration: none;
+} 
+.
+
+
 /*END NAV STUFF*/
 
 a{
