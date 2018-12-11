@@ -1,62 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>HVBedBreakfast</title>
+  <title>BedBreakfast</title>
   <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+  <link href="css/slideshow.css" rel="stylesheet" type="text/css">
     
+
 </head>
 <body>
 <header>
-    <h1 id= "Title">High View Bed and Breakfast</h1>
+	<img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
+		
+        
         <ul id="nav">
           <div class="ul">
             <li><a href="index.html">Home</a></li>
-            <li><a href="room+rates.html">Rooms & Rates</a></li>
+            <li><a href="room+rates.html">Rooms &amp; Rates</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="register.php">Book</a></li>
+           
+            <li><a href="register.html">Book</a></li>
             </div>
         </ul>
         
-	</header>
+</header>
 
-<img id="BBMainIMG" src="images/BBMain.jpg"> <!-- Catfish -->
 
 <div id="main">
-    <section>
-      <p id="intro">Welcome to the luxurious High View Bed & Breakfast we take great pride in saying that this your home away from home! We have several different rooms for you to pick from. If you are interested in a scenic view the ****** is for you. Other wise if you are intersted in seeing the best sunset in the state the **** room is for you. However we can also accomidate parties, weddings, and more in our activites room.
-      If you would like to have any special accomidations made please let us know. We believe that providing exception customer service and flexability, makes your stay at High View the best it can possibly be. 
-    </p>
+    
+    
+    <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 4</div>
+    <img src="images/CabinView.webp" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 4</div>
+    <img src="images/LivingArea.webp" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 4</div>
+    <img src="images/Kitchen.webp" style="width:100%">
+  </div>  
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 4</div>
+    <img src="images/Views.webp" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+    
+
+
+<div id="main">
+    <section id= "Sponsor">
+      <p class="Sponsors">Bed & Breakfast</p>
+      <p id="intro">Welcome to BedBreakfast - Your home away from home! Designed for many different <br> types of gatherings, an environment inviting and cozy to say the least. Whether you're <br> coming for business or pleasure you will definetly love your stay here.</p>
     </section>
+  
+  
+  
+  
+  
   
 
 
   <footer class="newfooter">
     <div id="footer-address">
       <p>
-        2134 South Shore Dr
+        420 Colorado St.
         <br>
-        Maldives, CO 
+        Breckenridge, CO 54703
         <br>
-        715-723-1582
+        715-874-4877
         <br>
       </p>
+
     </div>
-      
      <div id="follow-us">
       <h6> Follow Us </h6>
      <div id="facebook2">
-        <a> <img src="images/facebook_icon.png"> </a>
+        <a href= "https://www.facebook.com/eauclairefigureskate"  target="_blank"> <img src="images/facebook_icon.png"> </a>
      </div>
      <div id="instagram2">
-        <a> <img  src="images/instagram_icon.png"> </a>
+        <a href= "https://www.instagram.com/ec.figureskaters/" target="_blank"> <img  src="images/instagram_icon.png"> </a>
      </div>
      </div>
      <div id="rights">
         <p>
-          High View Bed & Breakfast <br>
+          BedBreakfast <br>
           Copyright &copy; All Rights Reserved
         </p>
      </div>
   </footer>
+  <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+
+      function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+        slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1} 
+        slides[slideIndex-1].style.display = "block"; 
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+  </script>
+    </div>
+  </div>
 </body>
 </html>
