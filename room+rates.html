@@ -3,91 +3,225 @@
 <head>
   <title>BedBreakfast</title>
   <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
-    
+  <link href="css/slideshow2.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
 <header>
-    <h1 id= "Title">High View Bed and Breakfast</h1>
+  <img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
+		
+        
         <ul id="nav">
           <div class="ul">
             <li><a href="index.html">Home</a></li>
-            <li><a href="room+rates.html">Rooms & Rates</a></li>
+            <li><a href="room+rates.html">Rooms &amp; Rates</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="register.php">Book</a></li>
+            
+            <li><a href="register.html">Book</a></li>
             </div>
         </ul>
   </header>
- 
   
-  <h2 id="SR">Sunrise Room</h2><br><br>
-    <img src="images/sunriseroom1.jpg">
-  <section id="SunriseRoom">
-  <p>From a large latticed balcony with French doors and ocean views to a roomy spa tub for two, The Sunrise Room at Port D'Hiver, an oceanfront boutique B&B, has all the luxurious trimmings your beach vacation calls for. The room's bright but clean design mixes upscale elegance with tropical flair. The focal point of the room is a big, beautiful four-poster bed carved from mahogany and dressed in crisp white down.</p>
-  </section>
+  <!-- Container for the image gallery -->
+<div class="container">
+
+  <!-- Full-width images with number text -->
+  <div class="mySlides">
+    <div class="numbertext">1 / 10</div>
+      <img src="images/CabinView2.webp" style="width:80%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 10</div>
+      <img src="images/Views2.webp" style="width:80%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 10</div>
+      <img src="images/LivingArea.webp" style="width:80%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 10</div>
+      <img src="images/Room1.webp" style="width:80%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 10</div>
+      <img src="images/Bathroom.webp" style="width:80%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 10</div>
+      <img src="images/Room2.webp" style="width:80%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">7 / 10</div>
+      <img src="images/KidsRoom.webp" style="width:80%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">8 / 10</div>
+      <img src="images/DinningArea.webp" style="width:80%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">9 / 10</div>
+      <img src="images/Kitchen.webp" style="width:80%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">10 / 10</div>
+      <img src="images/Views.webp" style="width:80%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Image text -->
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <!-- Thumbnail images -->
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="images/CabinView2.webp" style="width:90%" onclick="currentSlide(1)" alt="Cabin View">
+    </div>
+    <div class="column"> 
+      <img class="demo cursor" src="images/Views2.webp" style="width:100%" onclick="currentSlide(2)" alt="Views">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/LivingArea.webp" style="width:100%" onclick="currentSlide(3)" alt="Living Room">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/Room1.webp" style="width:100%" onclick="currentSlide(4)" alt="Master Room">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/Bathroom.webp" style="width:100%" onclick="currentSlide(5)" alt="Master Bathroom">
+    </div> 
+    <div class="column">
+      <img class="demo cursor" src="images/Room2.webp" style="width:100%" onclick="currentSlide(6)" alt="Double Room">
+    </div>
+     <div class="column">
+      <img class="demo cursor" src="images/KidsRoom.webp" style="width:100%" onclick="currentSlide(7)" alt="Kids Room">
+    </div>
+     <div class="column">
+      <img class="demo cursor" src="images/DinningArea.webp" style="width:100%" onclick="currentSlide(8)" alt="Dinning Room">
+    </div>
+     <div class="column">
+      <img class="demo cursor" src="images/Kitchen.webp" style="width:100%" onclick="currentSlide(9)" alt="Kitchen">
+    </div>
+     <div class="column">
+      <img class="demo cursor" src="images/Views.webp" style="width:100%" onclick="currentSlide(10)" alt="View2">
+    </div>
+    
+    
+  </div>
+</div>
+  <br>
   <br>
   
   
-  <h2 id="VR">Ocean View Room</h2><br><br>
-    <img src="images/sunriseroom1.jpg">
-    <section id="OceanViewRoom">
-  <p>Welcome to the front, corner room at our romantic Melbourne Beach Inn. Adjacent to Ocean Avenue and Atlantic Street, this historic room is blessed with glorious ocean views. Feel truly rested in the king-size bed with down duvet and plush pillows, or sit on the wraparound porch with shared sitting area and breathe in the cool sea breezes.
   
-  Other special touches include beamed ceilings and French doors. End your day in the exquisite marble bathroom with a relaxing dip in the Whirlpool tub, or a nice, soothing shower at our luxurious Melbourne Beach, FL Bed and Breakfast.
-
-  Ocean view
-  Interior Space: 248 sq. ft.
-  Exterior Space: 400 sq. ft., shared</p>
-        </section>
-  
-  <br><br>
+ 
   <section>
-    <h4 id="Amen">Amenities</h4>
-    <p>Guests will be provided a key for the bed and breakfast upon arrival. Breakfast will be included with your stay by your host at bedbreakfast. You will have access to a full kitchen, refridgerator, microwave, stove and coffee maker. Menus for restraunts that deliever will also be available.<br><br>
-      
-    Essentials - Toiletries will be available as well. Every room is stocked with the essentials you will need. <br><br>
-      
-    TV + WIFI access will also be available upon your stay.
-    </p>
-    
-    <p>
-    </p>
+  <p>This mountain cabin has everything you need in an isolated area just 2 miles from Breckenridge <br>on almost 3 acres of land. 3 bedroom, 2.5 bath, wi-fi, hot tub, extensive porch, stocked <br>kitchen, washer/dryer, gas fireplace, cable TV, make this a perfect home away from home!</p>
   </section>
+  <br>
+  <hr>
+  <br>
+  
+  <section>
+    <h1>Amenities</h1>
+    <!--<p>Guests will be provided a key for the bed and breakfast upon arrival. Breakfast will be <br>included with your stay by your host at bedbreakfast. You will have access to a full kitchen, <br> refridgerator, microwave, stove and coffee maker. Menus for restraunts that delieverwill also be available.<br><br>-->
+    <br>
     
-    <section>
+    <div class="Icons1">
+      <ul>
+        <li><span id="TV"> <img src="images/TVIcon.jpeg"> Cable TV</span></li><br>
+        <li><span id="Wifi"> <img src="images/WIFI-Icon.png"> WIFI</span></li><br>
+        <li><span id="Towel"> <img src="images/Towelicon.png"> Amenities</span></li>
+      </ul>
+    </div>
+    <div class="Icons2">
+      <ul>
+        <li><span id="Fireplace"> <img src="images/FireplaceIcon.png"> Fire Place</span></li>
+        <li><span id="Dryer"> <img src="images/DryerIcon.jpeg"> Washer/Dryer</span></li>
+        <li><span id="Food"> <img src="images/Food.png"> Dining</span></li>
+      </ul>
+    </div>
+  </section>
+  
     
-    </section>
     
+   
+  
   
   
   <footer class="newfooter">
     <div id="footer-address">
       <p>
-        2134 South Shore Dr
+        915 Menomonie St.
         <br>
-        Maldives, CO 
+        Eau Claire, WI 54703
         <br>
-        715-723-1582
+        715-874-4877
         <br>
       </p>
+
     </div>
-      
      <div id="follow-us">
       <h6> Follow Us </h6>
      <div id="facebook2">
-        <a> <img src="images/facebook_icon.png"> </a>
+        <a href= "https://www.facebook.com/eauclairefigureskate"  target="_blank"> <img src="images/facebook_icon.png"> </a>
      </div>
      <div id="instagram2">
-        <a> <img  src="images/instagram_icon.png"> </a>
+        <a href= "https://www.instagram.com/ec.figureskaters/" target="_blank"> <img  src="images/instagram_icon.png"> </a>
      </div>
      </div>
      <div id="rights">
         <p>
-          High View Bed & Breakfast <br>
+          BedBreakfast <br>
           Copyright &copy; All Rights Reserved
         </p>
      </div>
   </footer>
+  
+ <script>
+  var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+  </script>
 
 </body>
 </html>
