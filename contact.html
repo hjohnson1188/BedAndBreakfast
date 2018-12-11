@@ -108,7 +108,7 @@
     <script>
         var pos, map, id;
 
-        function hobbsMap() {
+        /**function hobbsMap() {
             pos = {
                 lat: 39.4816537,
                 lng: 106.0383518
@@ -137,9 +137,28 @@
                     infowindow.open(map, marker);
                 }
             });
+        } **/
+        
+        function BreckenMap() { 
+        var mylocation = {lat: 39.496744, lng: -106.0449};
+            
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: mylocation,
+          zoom: 14
+        });
+            
+        var marker = new google.maps.Marker({
+        position: mylocation,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: 'High View Bed & Breakfast'
+        });
+
+      
+
         }
     </script>
-    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=hobbsMap&libraries=places"></script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=BreckenMap&libraries=places"></script>
 </body>
 
 </html>
