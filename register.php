@@ -234,12 +234,12 @@
     <footer class="newfooter">
     <div id="footer-address">
       <p>
-        2134 South Shore Dr
+        1234 Snowy Ave.
         <br>
-        Maldives, CO 
+        Breckenridge, CO 80424
         <br>
-        715-723-1582
-        <br>
+        970-874-4877
+	<br>
       </p>
     </div>
         
