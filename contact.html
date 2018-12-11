@@ -9,13 +9,17 @@
 
 <body>
 	<header>
-        <h1 id= "Title">High View Bed and Breakfast</h1>
+	    <img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
+        
+	   
+        
         <ul id="nav">
           <div class="ul">
             <li><a href="index.html">Home</a></li>
-            <li><a href="room+rates.html">Rooms & Rates</a></li>
+            <li><a href="room+rates.html">Rooms &amp; Rates</a></li>
+            
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="register.php">Book</a></li>
+            <li><a href="register.html">Book</a></li>
             </div>
         </ul>
         
@@ -61,8 +65,11 @@
                <div class="contact-column" id="ContactInfo">
                		<h1>Contact Information</h1>
                		<p>Host: <a href="mailto:tkretschmer715@gmail.com">Jon Fehr</a></p>
-                    <p>Phone Number: 999-345-6789</p>
-		           
+                    <p>Phone Number: 715-123-4567</p>
+		            
+               		<h3>Bed Breakfast @ <br>
+		            <a href="http://127.0.0.1:50566/index.html">Bed & Breakfast</a></h3>
+		            <img src="images/CabinView2.webp" alt="Hobbs Ice Arena exterior"/>
                </div>
             </div>
             <div class="row">
@@ -70,49 +77,69 @@
             </div>
         </div>
 
-  <footer class="newfooter">
-    <div id="footer-address">
-      <p>
-        2134 South Shore Dr
-        <br>
-        Maldives, CO 
-        <br>
-        715-723-1582
-        <br>
-      </p>
-    </div>
-      
-     <div id="follow-us">
-      <h6> Follow Us </h6>
-     <div id="facebook2">
-        <a> <img src="images/facebook_icon.png"> </a>
-     </div>
-     <div id="instagram2">
-        <a> <img  src="images/instagram_icon.png"> </a>
-     </div>
-     </div>
-     <div id="rights">
-        <p>
-          High View Bed & Breakfast <br>
-          Copyright &copy; All Rights Reserved
-        </p>
-     </div>
-  </footer>
+        <footer class="newfooter">
+          <div id="footer-address">
+            <p>
+              915 Menomonie St.
+              <br>
+              Eau Claire, WI 54703
+              <br>
+              715-874-4877
+              <br>
+            </p>
+
+          </div>
+          <div id="follow-us">
+            <h6> Follow Us </h6>
+            <div id="facebook2">
+              <a href= "https://www.facebook.com/eauclairefigureskate"  target="_blank"> <img src="images/facebook_icon.png"> </a>
+            </div>
+            <div id="instagram2">
+              <a href= "https://www.instagram.com/ec.figureskaters/" target="_blank"> <img  src="images/instagram_icon.png"> </a>
+            </div>
+          </div>
+          <div id="rights">
+              <p>
+                Eau Claire Figure Skating Club <br>
+                Copyright &copy; All Rights Reserved
+              </p>
+          </div>
+    </footer>
     <script>
-       var  map;
-        function hobbsMap() { 
-            
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 39.495744, lng: -106.03},
-          zoom: 14
-        });
-      
+        var pos, map, id;
 
+        function hobbsMap() {
+            pos = {
+                lat: 39.4816537,
+                lng: 106.0383518
+            };
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: pos,
+                zoom: 14
+            });
+            id = 'ChIJNyejrYG9-IcRQy4UJguuK68';
+            var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            service.getDetails({
+                placeId: id
+            }, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                            place.formatted_address + '<br>' +
+                            '715-874-4877' + '</div>');
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, this);
+                    });
+                    infowindow.open(map, marker);
+                }
+            });
         }
-       
-
     </script>
-    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=hobbsMap&libraries=places"></script> 
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=hobbsMap&libraries=places"></script>
 </body>
 
 </html>
