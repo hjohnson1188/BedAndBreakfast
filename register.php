@@ -234,15 +234,15 @@
     <footer class="newfooter">
     <div id="footer-address">
       <p>
-        1234 South Shore
+        2134 South Shore Dr
         <br>
-        Maldives
+        Maldives, CO 
         <br>
-        999-345-6789
+        715-723-1582
         <br>
       </p>
-
     </div>
+        
      <div id="follow-us">
       <h6> Follow Us </h6>
      <div id="facebook2">
@@ -254,7 +254,7 @@
      </div>
      <div id="rights">
         <p>
-          BedBreakfast <br>
+          High View Bed & Breakfast <br>
           Copyright &copy; All Rights Reserved
         </p>
      </div>

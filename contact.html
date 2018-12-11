@@ -73,15 +73,15 @@
   <footer class="newfooter">
     <div id="footer-address">
       <p>
-        1234 South Shore
+        2134 South Shore Dr
         <br>
-        Maldives
+        Maldives, CO 
         <br>
-        999-345-6789
+        715-723-1582
         <br>
       </p>
-
     </div>
+      
      <div id="follow-us">
       <h6> Follow Us </h6>
      <div id="facebook2">
@@ -93,46 +93,26 @@
      </div>
      <div id="rights">
         <p>
-          BedBreakfast <br>
+          High View Bed & Breakfast <br>
           Copyright &copy; All Rights Reserved
         </p>
      </div>
   </footer>
     <script>
-        var pos, map, id;
+       var  map;
+        function hobbsMap() { 
+            
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.495744, lng: -106.03},
+          zoom: 14
+        });
+      
 
-        function hobbsMap() {
-            pos = {
-                lat: 44.8004122,
-                lng: -91.520933
-            };
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: pos,
-                zoom: 14
-            });
-            id = 'ChIJNyejrYG9-IcRQy4UJguuK68';
-            var infowindow = new google.maps.InfoWindow();
-            var service = new google.maps.places.PlacesService(map);
-            service.getDetails({
-                placeId: id
-            }, function(place, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: place.geometry.location
-                    });
-                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                            place.formatted_address + '<br>' +
-                            '715-874-4877' + '</div>');
-                    google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map, this);
-                    });
-                    infowindow.open(map, marker);
-                }
-            });
         }
+       
+
     </script>
-    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=hobbsMap&libraries=places"></script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAeqJMPfvVOaXJ37xycH0dL1olvul_wOJg&callback=hobbsMap&libraries=places"></script> 
 </body>
 
 </html>
