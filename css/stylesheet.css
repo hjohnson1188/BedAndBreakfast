@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Niramit:400,300,600);
 
+@font-face {
+    font-family: 'Montserrat'; /*a name to be used later*/
+    src: url('https://fonts.googleapis.com/css?family=Montserrat'); /*URL to font*/
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,10 +22,6 @@ html{
   background-image: url("ice_background2.jpg");  
   background: no-repeat;
   font-family: sans-serif
-}
-
-body {
-  background-color: white;
 }
 
 p{
@@ -113,7 +114,7 @@ li a:hover {
 .Sponsors {
   font-size: 3em;
   color: #5F6A6A;
-  font-family: cursive;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px
 }
 
@@ -803,7 +804,7 @@ $asphalt: 		#506982;
 }
 body{
 	text-align: center;
-	font-family: 'Lato', 'sans-serif';
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
   width: 100%;
 
