@@ -5,6 +5,7 @@
 /* Position the image container (needed to position the left and right arrows) */
 .container {
   position: relative;
+   
 }
 
 /* Hide the images by default */
@@ -60,7 +61,7 @@
   text-align: center;
   padding: 2px 16px;
   color: red;
-    border-bottom: solid 2px #222;
+   
 }
 
 .row:after {

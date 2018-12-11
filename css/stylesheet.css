@@ -72,6 +72,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-radius: 20px;
 } 
 .ul{
   margin-left: auto;
@@ -82,6 +83,7 @@ li a {
   width: 100%;
   background-color: white;
   color: white;
+    
 }
 #nav li{
   display: inline-block;
@@ -89,6 +91,7 @@ li a {
   margin-top: 3px;
   margin-bottom: 3px; 
   width: 24%;
+    
 
 }
 #nav{
@@ -97,8 +100,8 @@ li a {
   clear: both;
   position: relative;
   top: 2em;
-  box-shadow: 0 7px 10px #c0cdde;
-    border-radius: 5px;
+  box-shadow: 0 7px 10px #222;
+  
 }
 /*END NAV STUFF*/
 
@@ -429,7 +432,9 @@ td{
 .row {
 	height: 100%;
 	width: 100%;
-	margin: 0;
+    padding-top: 5px;
+     border-bottom: solid 2px #222;
+     border-top: solid 2px #222;
 }
 
 .row:after {
