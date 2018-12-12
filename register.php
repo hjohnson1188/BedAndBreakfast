@@ -2,10 +2,11 @@
 <html>
 
 <head>
-    <title>Contact</title>
-    <meta charset="utf-8">
-    <link href="css/stylesheet.css" rel="stylesheet">
-</head> 
+  <title>BedBreakfast</title>
+  <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+  <link href="css/slideshow2.css" rel="stylesheet" type="text/css">
+
+</head>
 
 <?php
             // DEBUGGING ERRORS:
@@ -18,20 +19,19 @@
            require 'dbConnect.php';
 ?>
 <body>
-	<header>
-         
-	   
-        <h1 id= "Title">High View Bed and Breakfast</h1>
+<header>
+  <img id= "logo" src="images/BedBreakfast_logo1.jpeg"> 
+		
+        
         <ul id="nav">
           <div class="ul">
             <li><a href="index.html">Home</a></li>
-            <li><a href="room+rates.html">Rooms & Rates</a></li>
+            <li><a href="room+rates.html">Rooms &amp; Rates</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="register.php">Book</a></li>
-          </div>
+            </div>
         </ul>
-      
-  </header> 
+  </header>
  
   <div class="contactForm">
   
@@ -40,20 +40,20 @@
   <div class="form-group">
         <h2 class="heading">Booking & contact</h2>
         <div class="control">
-          <input type="text" id="firstName" class="floatLabel" name="firstName">
+          <input type="text" id="firstName" class="floatLabel" name="firstName" required>
           <label for="name">First Name</label>
         </div>
         <div class="control">
-          <input type="text" id="lastName" class="floatLabel" name="lastName">
+          <input type="text" id="lastName" class="floatLabel" name="lastName" required>
           <label for="name">Last Name</label>
         </div>
         <div class="control">
-          <input type="text" id="email" class="floatLabel" name="email">
+          <input type="email" id="email" class="floatLabel" name="email" required>
           <label for="email">Email</label>
         </div>       
         <div class="control">
-          <input type="tel" id="phone" class="floatLabel" name="phone">
-          <label for="phone">Phone</label>
+          <input type="tel" id="phone" class="floatLabel" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" required>
+          <label for="phone">Phone (XXX-XXX-XXXX)</label>
         </div>
     </form>    
  
@@ -151,7 +151,7 @@
                             //Find out if room is already booked for date
                             
                             $checkDate = $arriveDate;
-                            $output = '';
+                            $dayCount = 0;
                             
                             
                             while ($checkDate <= $departDate){
@@ -164,10 +164,20 @@
                                $errorMsg = "Error fetching dates";
                 
                                $numDays = callQuery($pdo, $query, $errorMsg)->fetchColumn();
+                               
+                               
+                               
                                If ($numDays > 0){
-                                   $outPut = $output."<h1> Your date $checkDate and room selection has already been booked.</h1><br>";
+                                   echo "<h1> Your date $checkDate and room selection has already been booked.</h1><br>";
+                                   $dayCount += 1;
                                    
-                               } else   {
+                               } 
+                               
+                               $checkDate = date('Y-m-d',strtotime($checkDate.' +1 day'));
+                            }
+                            
+                            
+                            If  ($dayCount ==0) {
                                             // Insert Room Reservation in to the reservations table
                                      $pdo->beginTransaction();
                                      $sql = "INSERT INTO reservations (firstName, lastName, email, phone, room, bedding, numPeople, startDate, endDate) VALUES ('$firstName', '$lastName', '$email', '$phoneNumber','$room', '$bedding', $numPeople, '$arriveDate','$departDate')";
@@ -195,11 +205,8 @@
                                      $resDate = date('Y-m-d',strtotime($resDate.' +1 day'));
                                      }
                                }
-                            $checkDate = date('Y-m-d',strtotime($checkDate.' +1 day'));
-                            }
                             
-                            echo $outPut;
-                                                
+                                                                          
                             
                             
                            
